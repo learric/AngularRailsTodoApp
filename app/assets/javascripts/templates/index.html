@@ -1,9 +1,11 @@
-<div class="list-group" ng-if="getTodos">
+<div class="list-group" ng-if="getTodos" ng-hide="noTodos">
 	<div class="list-group-item" ng-repeat="todos in getTodos" ng-if="todos.id > 0">
 		<p>{{ todos.item }}</p>
-		<button class="btn btn-success" ng-click="itemComplete(todos.id)">Complete</button>
+		<button class="btn btn-success" ng-click="itemComplete(todos.id, $index)">Complete</button>
 	</div>
 </div>
+
+<h3 ng-show="noTodos">Enter a new to do item</h3>
 
 <div class="panel panel-primary">
 	<div class="panel-heading">
@@ -15,7 +17,7 @@
 			<div class="form-group">
 				<label>New To Do Item</label>
 				<div>
-					<input autofocus class="form-control" type="text" placeholder="Add New To Do" ng-model="newTodo" />
+					<input class="form-control" type="text" placeholder="Add New To Do" ng-model="newTodo" />
 				</div>
 			</div>
 
