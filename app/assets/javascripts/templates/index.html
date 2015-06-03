@@ -1,0 +1,25 @@
+<div class="list-group" ng-if="getTodos">
+	<div class="list-group-item" ng-repeat="todos in getTodos" ng-if="todos.id > 0">
+		<p>{{ todos.item }}</p>
+		<button class="btn btn-success" ng-click="itemComplete(todos.id)">Complete</button>
+	</div>
+</div>
+
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">Add New To Do</h3>
+	</div>
+
+	<div class="panel-body">
+		<form>
+			<div class="form-group">
+				<label>New To Do Item</label>
+				<div>
+					<input autofocus class="form-control" type="text" placeholder="Add New To Do" ng-model="newTodo" />
+				</div>
+			</div>
+
+			<button class="btn btn-primary" ng-click="itemAdd(newTodo)">Add Item</button>
+		</form>
+	</div>
+</div>
